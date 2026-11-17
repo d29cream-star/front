@@ -142,6 +142,41 @@
 
     </pre>
 
-    <h3></h3>
+    <h3>게임</h3>
+
+    <input type="checkbox" name="game" value="GTA6"/>GTA6
+    <input type="checkbox" name="game" value="몬스터헌터"/>몬스터헌터
+    <input type="checkbox" name="game" value="마피아"/>마피아
+    <input type="checkbox" name="game" value="페르소나"/>페르소나
+
+    <button onclick="checkGame();">게임을 선택해보세요.</button>
+    <script>
+        function checkGame(){
+            const games = document.getElementsByName("game");
+            //console.log(games);
+            let checked = '';
+            for(let i = 0; i < games.length; i++){
+                if(games[i].checked){
+                    checked += " " + games[i].value;
+                }
+            }
+            console.log("체크한 요소들:" + checked);
+           
+            const selected = [...games]
+            .filter((e)=> e.checked)
+            .map((e) => e.value);
+            //alert("선택된 요소들:" + selected);
+            alert(`선택된 게임은 ${selected} 입니다.`);
+        }
+
+    </script>
+    <hr>
+    <h4>기억해둘 내용</h4>
+    <script>
+        
+    </script>
+
+
+
 </body>
 </html>

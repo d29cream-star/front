@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Variable</title>
+    <style>
+        .area{
+            width: 500px;
+            min-height:200px;
+            border: 1px solid;
+        }
+    </style>
+</head>
+<body>
+    <h1>변수에 대하여</h1>
+
+    <pre>
+        const a = 10;
+
+    </pre>
+
+    <button onclick="variable()">변수를 써보자</button>
+    <script>
+        function variable(){
+            var userId = "user01";
+            userId = "user02";
+            userId = 123;
+            var userId = "user03";
+            console.log(userId);
+
+            const userName = "홍길동";
+            //userName = "고길동";
+            console.log(userName);
+        }
+
+
+    </script>
+
+    <hr>
+    <script>
+        var str = "var 전역변수"
+        window.onload = function(){
+            var str = "var 지역변수";
+            console.log(str);
+            console.log(window.str);
+        };
+        console.log(str);
+    </script>
+    <hr>
+
+    <h2>
+        자료형
+    </h2>
+
+</body>
+</html>
