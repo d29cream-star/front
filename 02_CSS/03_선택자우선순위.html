@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>우선순위</title>
+    <style>
+        body{
+            padding-bottom: 600px;
+        }
+        #h1{
+            background: dodgerblue;
+            }
+        h1{
+            color:yellow;
+            background: red;
+        }
+        .c1{
+            color:green;
+            background: yellow;
+        }
+        h1{
+            color:aliceblue !important;
+        }
+    </style>
+</head>
+<body>
+    <h1 id="h1" class="c1" style="background: yellow;">선택자 우선순위</h1>
+    
+    <p>
+        (!important,) (인라인), id , class, tag
+    </p>
+
+</body>
+</html>

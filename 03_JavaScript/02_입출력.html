@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area{
+            width: 500px;
+            height: 300px;
+            border: 1px;
+        }
+        .yellow{
+            color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <script>
+       // window.alert("하이");
+    
+    </script>
+
+    <h3>출력하는 방법</h3>
+    <button onClick="documentWrite();">버튼1</button>
+    <script>
+        function documentWrite(){
+            document.write("<h1> 제목 </h1>");
+        }
+    </script>
+    <hr>
+    <h2>요소.innerHTML / innerText</h2>
+
+    <div id="area1" class="area">
+        여기
+
+
+    </div>
+    <button id="btn1">버튼2</button>
+    <script>
+        //console.log(document);
+        const btn1 = document.querySelector("#btn1");
+        //console.log(btn1);
+        //console.dir(btn1);
+        btn1.onclick = function(){
+            console.log("함수를 대입");
+            const area1 = document.querySelector("#area1");
+            console.dir(area1);
+            
+            console.log(area1.id);
+            console.log(area1.className);
+            area1.innerHTML = "<b>innerHTML 속성 값 변경 <b>";
+            area1.className = "yellow";
+
+        };
+    </script>
+
+<hr>
+    <button onclick="check()">버튼3</button>
+    <div id="area2" class="area">
+
+
+    </div>
+    <script>
+        function check(){
+            const value = confirm("졸리면 확인, 아니면 취소 누르기");
+            const area2 = document.querySelector("#area2");
+            if(value){
+                area2.innerHTML = "<div style='color:red'>정신차려!!</div>";
+            }else{
+                area2.innerHTML = "<div> 안졸리데용 </div>";
+            }
+        }
+
+    </script>
+
+    <h3>스타일 생략</h3>
+    <button onclick="minus()">-</button> <span id="count">0</span>개<button onclick="plus()">+</button>
+    <script>
+        function minus(){
+            const count = document.querySelector("#count");
+            count.innerText -= 1;
+        }
+        function plus(){
+            const count = document.querySelector("#count");
+            count.innerText = Number(count.innerText) + 1;
+        }
+    
+    </script>
+    <hr>
+    <h3>prompt(질문)</h3>
+    <ul id="parent"></ul>
+    <button onclick="createEl()">열심히하자</button>
+    <script>
+        function createEl(){
+         const num = prompt("숫자를 입력하세요.");
+        //console.log(num);
+          const parent = document.querySelector("#parent");  
+
+          for(let i = 0; i < num; i++){
+            parent.innerHTML += "<li>자식요소</li>";
+          }
+
+        }
+
+    </script>
+
+    <hr>
+    <h3>가장 많이 사용하는 방법</h3>
+
+    <input type="text" id="input-id"/> <br>
+    <label for="input-id" id="msg"></label>
+    <button onclick="validation()">검사하기</button>
+    
+    
+    <script>
+        function validation(){
+            const el = document.querySelector("#input-id");
+            const labelEl = document.querySelector("#msg");
+            labelEl.style.fontSize = "11px";
+            
+            //console.dir(el);
+            //console.log(el.value.length);
+            if(el.value.length>5){
+                labelEl.innerHTML = "<b> 너무 길어요 </b>";
+                labelEl.style.color = "red";
+            }else{
+                labelEl.innerHTML = "<b>참 잘했어요 </b>";
+                labelEl.style.color = "green";
+            }
+        }
+    </script>
+
+    <h2>요소에 접근하는 방법들</h2>
+    <pre>
+        document.querySelector("CSS 선택자") => 요소를 딱 첫번째 하나
+        document.querySelectorAll("CSS 선택자") => 전부(배열처럼)
+        documnet.getElementById("아이디")=>하나
+        documnet.getElementByClassName("클래스속성값")=>전부
+        documnet.getElementByTagName("태그")=>전부
+        documnet.getElementByName("name속성값")=>전부
+
+    </pre>
+
+    <h3></h3>
+</body>
+</html>

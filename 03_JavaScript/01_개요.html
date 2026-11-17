@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>개요</title>
+</head>
+<body>
+    <h1>자바 스크립트</h1>
+    <h3>스크립트 언어</h3>
+    <ol>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ol>
+
+    <button onclick="alert('하이')">클릭</button>
+    <span ondblclick="console.log('와!자바스크립트!')">더블클릭</span>
+
+    <button onclick="fn1()">1번</button>
+    <button id="btn1">2번</button>
+    <button id="btn2">3번</button>
+    <script>
+        //한줄 주석
+        /*여러줄 주석*/
+
+        function fn1(){
+            alert('함수를 호출해보세요!');
+        }
+        const btnEl = document.getElementById('btn1');
+        btnEl.addEventListener("click",() => {
+            fn1();
+        });
+        
+        const btn2 = document.querySelector("#btn2");
+        btn2.onclick = function (){
+            alert("호잇");
+        };
+
+    </script>
+
+    <hr>
+    <p onclick="test()">별도 .js파일로 분리</p>
+    <script src="myModule.js"></script>
+    
+</body>
+</html>

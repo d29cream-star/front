@@ -1,0 +1,33 @@
+#content-2{
+    display: flex;
+    flex-direction: column;
+     
+}
+#hero{
+    flex: 1;
+    background-color: #1a1a1a;
+    color: #fafafa;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding-bottom: 100px;
+    border-radius: 6px;
+}
+#title{
+    font-size:25px;
+    font-weight:700;
+    margin-bottom: 9px;
+}
+#sub{
+    font-size: 13px;
+    color: #eee;
+}
+#tag{
+    font-size: 16px;
+    font-weight: 600;
+    color: rgb(237,44,44,0.834);
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+    background-color: #222;
+}

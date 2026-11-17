@@ -1,0 +1,58 @@
+body{
+    padding-bottom: 600px;
+    color: whitesmoke;
+    background-color: #000000;
+    }
+
+div>ul{
+    color:#ffff00;
+}
+div ul{
+    color: #ff0000;
+}
+#test2+div{
+    background-color: #ffc0cb;
+}
+#test3+ul{
+   color: #ffff00; /*이건 안됨*/
+}
+#test2~ul{
+   color: #ffff00;
+}
+#test3>li:first-child{
+    color:#0000ff;
+}
+#test3>li:last-child{
+    color:#008000;
+}
+div[name="n"]{
+    color:#d2691e;
+}
+.area{
+    width:200px;
+    height:200px;
+    border: 1px solid white;
+
+}
+#active:active{
+    background-color: red;
+}
+#hover{
+    background-color: rgba(200, 206, 207, 0.856);
+    &:hover{
+         background-color: cornflowerblue;
+         cursor: pointer;
+}
+}
+#hover:hover{
+    background-color: cornflowerblue;
+    cursor: pointer;
+}
+
+input[type="checkbox"]:checked{
+    width: 20px;
+    height: 20px;
+}
+input[type="checkbox"]:checked + label{
+    font-size: 20px;
+}

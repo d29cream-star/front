@@ -1,0 +1,22 @@
+#navbar{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    height: 100%;
+    display:flex;
+    background-color: green;
+
+}
+#navbar>ul{
+    text-align: center;
+    list-style: none;
+    letter-spacing: 2px;
+
+}
+#navbar>ul>a{
+    display: block;
+    height:100%;
+    text-decoration: none;
+    font-weight: 600;
+    color: whitesmoke;
+}
