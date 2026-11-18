@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .area{
+            min-height: 200px;
+            width: 500px;
+            height: 100px;
+        }
+        div{
+            box-sizing: border-box;
+        }
+        #wrap{
+            width:1200px;
+            min-height: 400px;
+            margin: auto;
+            box-shadow: 1px 2px 12px lightgray;
+        }
+        .card{
+            width: 230px;
+            height: 360px;
+            padding: 7px 7px 10px;
+            display: inline-block;
+        
+            &:hover{
+                box-shadow: 1px 2px 6px lightblue;
+            }
+        
+        .card img{
+            width: 100%;
+            height: 300px;
+
+        }
+        .card h4{
+            font-weight: 600;
+            font-size: 17px;
+            margin: 4px 0;
+        }
+        .card p{
+            font-size: 14px;
+            font-weight: 500;
+            margin:0;
+        }
+        }
+
+    </style>
+</head>
+<body>
+    <h1>객체</h1>
+
+<div id="area" class="area"></div>
+<button onclick="createObj()">객체만들기</button>
+
+<script>
+    function createObj(){
+       //const shamoneysm = [6, "샤머니즘", "나락", "https://" ,3]
+        //const area = documnet.querySelector("#area");
+       // area.innerHTML = `웹툰제목: ${shamoneysm[1]}`;
+        const webtoon = {
+            webtoonNo:6,
+            webtoonName:"샤머니즘",
+            webtoonAuthor:"하이준",
+            thumbnail: "https://image-comic.pstatic.net/webtoon/856874/thumbnail/titledescimage/frontImage_389091a3-06c1-406a-8cf8-cd52027694aa.png",
+            cookie: 3
+        };
+        //console.log(webtoon);
+        const area = document.querySelector("#area");
+        area.innerHTML = `웹툰 이름: ${webtoon.webtoonName}<br>
+                         작가: ${webtoon["webtoonAuthor"]}<br>
+                         이미지 url: ${webtoon["thumbnail"]}<br>
+                         쿠키: ${webtoon["cookie"]}
+                        `;
+                         
+    }
+    
+</script>
+
+    <hr>
+
+    <div id="wrap"></div>
+    <button onclick="selectWebtoon()">웹툰</button>
+
+    <script>
+        function selectWebtoon(){
+            const webtoons = [
+                {
+                    img: "https://image-comic.pstatic.net/webtoon/856125/thumbnail/titledescimage/frontImage_ad0fb333-be04-4a44-ac3a-db3626bf327d.png",
+                    title: "첫사랑트랩",
+                    author: "해서"               
+                },
+                {
+                    img:"https://image-comic.pstatic.net/webtoon/856441/thumbnail/titledescimage/frontImage_0cfce034-7a81-474b-9ecd-0cfe46ba8cd6.png",
+                    title:"종말이 찾아왔다",
+                    author: "명안"
+                },
+                {
+                    img:"https://image-comic.pstatic.net/webtoon/857024/thumbnail/titledescimage/frontImage_af33795a-941c-4947-aa58-0b7dd92dd19e.png",
+                    title:"을의 도면",
+                    author: "매미"
+                },
+                {
+                    img:"https://image-comic.pstatic.net/webtoon/855720/thumbnail/titledescimage/frontImage_79d47f2a-ed84-4104-81f1-5a9abf4b78f8.png",
+                    title:"서리",
+                    author: "김갈대"
+                }
+            ];
+
+            //console.log(webtoons);
+                /*let el = " ";
+                for(let w of webtoons){
+                    el += `<div class="card">
+                            <img src = "${w.img}"/>
+                            <h4>${w.title}</h4>
+                            <p>${w.author}</p>
+                            </div>`;
+                }
+                console.log(el);*/
+
+
+                const el = webtoons.map(w => `<div class = "card">
+                                            <img src="${w.img}" alt="웹툰 썸네일" />
+                                            <h4>${w.title}</h4>
+                                            <p>${w.author}</p>
+                                            </div>`).join('');
+                document.querySelector("#wrap").innerHTML = el;
+        }
+            
+    </script>
+    <h3>>????>>>?>>>  </h3>
+    <button onclick="second()">대괄호</button>
+    <script>
+        function second(){
+            const webtoon = {
+                "webtoon name" : "캐슬"};
+                console.log(webtoon["webtoon name"]);
+        }
+    </script>
+</body>
+</html>

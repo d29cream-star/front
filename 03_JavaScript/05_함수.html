@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .area{
+        width: 500px;
+        height: 100px;
+        border: 1px solid tomato;
+        background-color: salmon;
+    }
+</style>
+<body>
+    <h1>함수 function</h1>
+        <pre>
+            function 
+        </pre>
+    <h3>매개 변수를 가진 함수</h3>
+        <button onclick="fn(1)">버튼</button>
+        <button onclick="fn('문자열')">버튼</button>
+        <button onclick="fn([1,2,3])">버튼</button>
+        <button onclick="fn(alter('hi'))">버튼</button>
+        <button onclick="fn()">버튼</button>
+        <button onclick="fn(1,2,3,4,5)">버튼</button>
+
+        <script>
+            function fn(...value){
+                console.log(value);
+
+            }
+        </script>
+
+        <hr>
+
+        <button id="btn1" onclick="color(this)">버튼</button>
+        <button id="btn2" onclick="color(this)">버튼</button>
+        
+        <script>
+            function changeColor1(){
+                document.querySelector("#btn1").style.color = "red";
+
+            }
+            function changeColor2(){
+                document.querySelector("#btn2").style.color = "red";
+
+            }
+
+            function change(value){
+                document.querySelector("$btn{value}").style.color = "red";
+            }
+
+            function color(e){
+                //console.log(e);
+                e.style.color="red";
+            }            
+        </script>
+        <hr>
+        <pre>
+            이름 입력=>1~10 중 1개 출력하는 함수
+        </pre>
+        <input id="name" type="text"> <br>
+        <button id="btn" onclick="print()">입력완료</button><br>
+        <div id="area0" class="area"></div>
+
+        <script>
+            function print(){
+                const name = documnet.querySelector("#name").value;
+               //const num = parseInt(Math.random()*10) + 1;
+
+                const area0 = document.querySelector("#area0");
+               //area0.innerHTML = `${name}님의 행운의 숫자는 ${num}입니다.`;
+                const fn = generateNum();
+                area0.innerHTML = fn(name);
+            }
+            function generateNum(){
+                const num = parseInt(Math.random()* 10 ) + 1;
+                return function(name){
+                    return `${name}님의 랜덤 숫자: ${num}`;
+                }
+            }
+            
+       </script>
+    <button onclick="testFn()()">옛날 코드</button>
+    <script>
+        function testFn(){
+            return function(){
+                alert("콜미");
+            }
+        }
+    </script>
+        
+</body>
+</html>

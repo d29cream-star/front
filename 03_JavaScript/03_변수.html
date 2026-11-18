@@ -52,6 +52,57 @@
     <h2>
         자료형
     </h2>
+    <div id="area" class="area"></div>
+    <button onclick="printType();">버튼</button>
+    <script>
+        function printType() {
+            const name =`삼각김밥`;
+            const price = 1900;
+            const isSale = false;
+            const material = [`밥`, `김`];
+            const maker = {
+                제조사 : "KH",
+                판매사 : "KH"
+            };
+            const fn = function(){
+                alert("삼각김밥 맛있어요");
+            };
+            let noVal;
+            const area = document.querySelector("#area");
+            area.innerHTML = `${typeof name}<br>
+                              ${typeof price}<br>
+                              ${isSale}<br>
+                              ${material}<br>
+                              ${maker}<br>
+                              ${fn}<br>
+                              ${noVal}`;
+        }
+    </script>
+    <h3>string 메소드 + 형변환</h3>
+    <button onclick="strMethod()">문자열메소드호출</button>
+    <script>
+        function strMethod(){
+            const str = "Hello World";
+            console.log(`길이 : ${str.length}`);
+
+            //const price = "1000";
+            const price = "1,000" // 만약 문자가 들어갔다면?;
+            const addPrice = 300;
+            console.log(price+addPrice); //1000300
+            console.log(parseInt(price) + addPrice);  //1300
+            console.log(Number(price) + addPrice); //1300
+
+            //만약 문자가 들어갔다면?
+            console.log(Number(price)); //NaN
+            console.log(parseInt(price)); //1
+            console.log(isNaN("abc"));
+            console.log(isNaN(123));
+            
+
+
+        }
+    </script>
+
 
 </body>
 </html>

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .area{
+            width:500px;
+            min-height:150px;
+            border: 1px solid darkolivegreen;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>배열</h1>
+
+    <pre>
+        const arr = [];
+    </pre>
+    <div id="area1" class="area"></div>
+    <button onclick="arr()">버튼</button>
+    <script>
+        function arr(){
+            const arr = ['홍길동', 15, true, [1, 2]];
+            //console.log(arr);
+            //console.log(arr[0]);
+            //console.log(arr[3][1]);
+            const area = document.querySelector("#area1");
+            
+            //for(let i = 0;i < arr.size(); i ++){
+            //    area.innerHTML += `${arr[1]}<br>`; 
+            //}
+            //for(let i in arr){
+            //    console.log(i);
+            //    area.innerHTML += `${arr[i]}<br>`;
+            //}
+            //for(let e of arr){
+            //    area.innerHTML += `${e}<br>`;
+            
+            area.innerHTML = arr.map((e)=> `${e}<br>`).join("");
+
+        }
+    //}
+    </script>
+    <hr>
+    <h3>배열의 요소를 추가하거나 제거하는 방법</h3>
+    <button onclick="addEl()">요소 추가</button>
+    <div id="area2" class="area"></div>
+    <script>
+        function addEl(){
+            const arr1 = [];
+            const arr2 = new Array();
+            //console.log(arr1);
+            //console.log(arr2);
+            arr1[0] = "당근";
+            arr1.push("사과"); //배열에 마지막요소에 추가
+            arr1.unshift("바나나"); // 0번 인덱스에 추가
+           // const num = parseInt(Math.random()*arr1.length);
+            //alert(`오늘 아침은 ${arr1[num]} 입니다.`);
+
+            alert(arr1.pop()); //뒤에서 반환
+            alert(arr1.shift()); //앞에서 반환
+
+            console.log(arr1);
+
+        }
+
+    </script>
+
+    <hr>
+    <div id="area3" class="area"></div>
+    <button onclick="holiday()">빨간날 찾기</button>
+    <script>
+        function holiday(){
+            const days= [
+                "어린이날",
+                "크리스마스",
+                "현충일",
+                "삼일절",
+                "광복절",
+                "설날",
+                "추석",
+                "개천절",
+                "한글날",
+                "부처님오신날",
+                "신정"
+            ];
+        
+            const day = prompt("어떤날을 찾으시나요?");
+            //const abc = days.filter((e) => e==day);
+            //console.log(days.indexOf(day)); //인덱스 번호
+           // console.log(days.includes(day));//true/false
+        }
+    </script>
+
+    <button onclick="syntax()">콘솔창 보기</button>
+    <script>
+        function syntax(){
+            console.log("a"=="a"); //t
+            console.log(1 == "1"); //t
+            console.log([]== 0);  //t
+
+            console.log("1" === 1); // 값이랑 타입이랑 둘다 비교
+
+            const fruits = ["Apple", "Banana", "Cherry"];
+            /*const e1 = fruits[0];
+            const e2 = fruits[1];
+            const e3 = fruits[2];*/
+            const [e1, e2, e3] = fruits;
+            console.log(e1, e2, e3);
+
+            const fruit = ["Durian", "Epple"];
+
+            const arr = [...fruits, ...fruit];
+            console.log(arr);
+
+            const nums = [1,2,3,4,5];
+            const nums2 = nums.map(function(e){
+                return e + 1;
+            });
+            console.log(nums2);
+            const num3 = nums.map((e)=>{return e + 1;})
+            const num4 = nums.map((e)=> e + 1);
+
+            console.log(num4);
+
+            const filter = nums.filter((e) => e % 2 !=0).map((e) => e + 1);
+            console.log(filters);
+
+        }
+    </script>
+
+    <h3>정렬</h3>
+     <button onclick="sort()">정렬</button>
+     <script>
+        function sort(){
+            const arr = ["Banan","용과", "Lemon", "Apple", "수박", "망고"];
+
+            console.log(arr);
+            const ac = arr.toSorted();
+            console.log(ac);
+        }
+
+     </script>
+
+     <div id="area4" class="area"></div>
+     <button onclick="join()">버튼버튼</button>
+     <h3>  </h3>
+     <script>
+        function join(){
+            const area = document.querySelector("#area4");
+            const arr = ["짱구","도라에몽","코난","보노보노"];
+            
+            //area.innerHTML = arr;
+            //const e1 = `<div class="name">이름 : ${arr[0]}</div>`;
+            //const e2 = `<div class="name">이름 : ${arr[0]}</div>`;
+            //const e3 = `<div class="name">이름 : ${arr[0]}</div>`;
+            //const e4 = e1 + e2 + e3;
+            //area.innerHTML = e4;
+            
+            area.innerHTML = arr.map(n => `<div class="name">이름 : ${arr[0]}</div>` ).join("");
+        }
+
+     </script>
+
+</body>
+</html>
