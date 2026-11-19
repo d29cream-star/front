@@ -119,7 +119,6 @@
                 }
                 console.log(el);*/
 
-
                 const el = webtoons.map(w => `<div class = "card">
                                             <img src="${w.img}" alt="웹툰 썸네일" />
                                             <h4>${w.title}</h4>
@@ -138,5 +137,65 @@
                 console.log(webtoon["webtoon name"]);
         }
     </script>
+
+    <hr>
+    <button onclick="loop()">버튼</button>
+
+    <script>
+        function loop(){
+            const human = {
+            name: "홍길동",
+            age : 15,
+            address: "한양",
+        };
+        for (let k in human){
+            console.log(human[k]);
+        }
+        
+    }
+    </script>
+        <hr>
+        <button onclick="method()">메소드 버튼</button>
+        <div id="area2" class="area"> </div>
+
+        <script>
+            function method(){
+                const name = "조안나";
+                const arma = {
+                    name : "야르",
+                    kind : "야르마딜로",
+                    circle : function(){
+                        alert(`${this.name}가 둥글게 몸을 맙니다.`);
+                    },
+                    toString : function(){
+                        return `이름: ${this.name}<br>
+                                종: ${this.kind}`;
+                    }
+                };
+                arma.circle();
+                const area2 = document.querySelector("#area2");
+                area2.innerHTML = `이름: ${arma.name} <br>
+                                    종:${arma.kind}`;
+            }
+
+        </script>
+
+        <button onclick="addProperty()">속성 추가</button>
+        <script>
+            function addProperty(){
+                const arma = {};
+
+                arma.name = "야르";
+                arma.age = 6;
+                arma.age=20;
+                delete arma.age;
+
+                console.log(arma);
+               
+            }
+            
+        
+        </script>
+
 </body>
 </html>

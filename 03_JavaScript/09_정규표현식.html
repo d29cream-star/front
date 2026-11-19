@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>정규표현식</h1>
+
+    <hr>
+    <h3>정규식 객체 만들기 + test()</h3>
+    <div id="area1" class="area"></div>
+    <button onclick="test1()">정규표현식 알아보기</button>
+
+    <script>
+        function test1(){
+            let regExp = new RegExp("kh");
+            regExp = /kh/;
+            //console.log(regExp);
+
+            const str = 'amazon google apple kh samsung lg taobao';
+            const area = document.querySelector("#area1");
+
+            area.innerHTML = `${regExp.test(str)} <br>
+                              ${regExp.test("블라블라")};`
+        }
+    </script>
+
+    <h2>메타문자= 패턴을 만드는 기호들</h2>
+
+        <div id="area2" class="area"></div>
+        <button onclick="test2()">메타문자</button>
+
+        <script>
+            function test2(){
+                const area = document.querySelector("#area2");
+                const str = 'javascript jquery ajax';
+                let regExp;
+
+                regExp =/a/;
+                area.innerHTML += `/a/: ${regExp.test(str)}`;
+
+                regExp = /^j/; 
+                area.innerHTML += `${regExp.test(str)}`;
+
+                regExp = /x$/;
+                area.innerHTML += `${regExp.test(str)}`;
+
+                regExp = /^jx$/;  //jx가 맞는가?
+                area.innerHTML += `${regExp.test(str)}`;
+
+                regExp = /[abc]/;
+                area.innerHTML += `${regExp.test(str)}`;
+
+                regExp =/^[jsa]/ //첫글자가 j또는 a또는 s로 시작하는가?
+                area.innerHTML += `${regExp.test(str)}`;
+
+                regExp = /^[0-9]+$/; //시작 부터 끝까지 숫자로만, 한글자 이상인가?
+
+                console.log("Javascript jQuery AJAXS".replace(/a/gi,"ㅋ"));
+
+            }
+        </script>
+
+        <h3>예제</h3>
+
+        <button onclick="test4()"> 검사 </button>
+        <script>
+            function test4(){
+                const num = "770517-1247511";
+
+                let regExp;
+                regExp = /^......-.......$/;
+                regExp = /^[0-9][0-9][0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9][0-9][0-9][0-9]$/;
+                regExp = /^\d\d\d\d\d\d-\d\d\d\d\d\d\d$/;
+                regExp = /^\d{6}-[1-4]\d{6}$/;
+                regExp = /^\d{2}(0[1-9]|1[0-2])(0[1-9]|[1-2][0-9]|3[0-1])-[1-4]\d{6}$/;
+
+            }
+            
+        </script>
+
+
+
+    </body>
+</html>

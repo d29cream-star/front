@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+<body>
+    <h1>jQuery란</h1>
+
+    <a href="http://jquery.com" target="_blank">제이쿼리</a>
+    <hr>
+    <ol>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ol>
+
+     <h3>
+         jQuery 사용해보기
+     </h3>
+<pre>
+    DOM 요소 객체를 다루기
+    jQuery코드가 문서상 모든 요소들이 전부 다 로드된 후에 실행할 수 있게끔 작업
+    <window.onload => 페이지가 전부 다 로딩 되고나서 자동으로 "딱 한번 " 수행
+        window.onload = () =>{
+            alert('sdf');
+        }
+    </pre>
+     
+<hr>
+<pre>
+    jQuery에서는 해당 내용을 세가지 구문으로 제공해서 해결
+    1) jQuery(document).ready(function(){
+        실행하고 싶은 내용;
+    });
+</pre>
+    <script>
+        $(function(){
+            console.log("안녕하셍요");
+        }); 
+        $(function(){
+            console.log("감사해요");
+        });
+        $(function(){
+           const li = document.querySelectorAll("li")
+            for(let e of li){
+                e.style.color = "green";
+            }
+        //$('li')
+        //    console.log($("li"));
+            
+        $("li").css("color", "red");
+        //$("li").html("바꾸고 싶은 값");
+        $("li").css("color", "red").html("이렇게 써라").click(function(){
+            console.log("클릭");
+        });
+        //innerText 변경 .text()
+        //프로퍼티 변경 .prop()
+        //클릭이벤트 변경 .click()
+        //input 요소에 value 속성값이 필요할때 .val()
+        $("h3, pre, li").css("color", "red");
+        });
+    </script>
+    <hr>
+    <h4>글자수 세기</h4>
+
+        <div style="border: 1px solid peru">
+        <br>
+        200자 입력하세요. <br>
+        <hr>
+        <textarea
+            id="content"
+            cols="40"
+            rows="10"
+            style="resize:none"
+            maxlength="200"
+        ></textarea>
+        <hr>
+        <br>
+        <span id="count">0</span>/200
+        <br>
+
+        
+        </div>
+
+        <script>
+            $(function(){
+                $("#content").keyup((e) => {
+                    console.log(e.target.value.length);
+                    $("#count").text(e.target.value.length);
+                });
+            });
+
+        </script>
+
+</body>
+</html>

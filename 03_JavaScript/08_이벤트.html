@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<h1>이벤트</h1>
+<hr>
+<h3>고전 이벤트 모델</h3>
+<button id="btn-1">버튼1</button>
+<button id="btn-2">버튼2</button>
+<div id="area1" class="area"></div>
+
+<script>
+    const btn1 = document.querySelector("#btn-1");
+    const area1 = document.getElementById("area1");
+
+    btn1.onclick = function(){
+        area1.innerHTML += `btn1 클릭<br>`;
+    };
+    document.getElementById('btn-2').onclick = () => {
+        btn1.onclick = null;
+        area1.innerHTML = "이벤트 제거";
+    };
+
+</script>
+
+    <h3>표준 이벤트 모델</h3>
+
+    <div id="btn-3">버튼</div>
+    <script>
+        const btn = document.querySelector("#btn-3");
+        btn.addEventListener('click',() =>{
+            alert("표준 이벤트 모델 테스트");
+        });
+        
+        btn.addEventListener("mouseenter", ()=>{
+            btn.classList.add("style");
+
+        });
+        
+        btn.addEventListener("mouseout", () =>{
+            btn.classList.remove("style");
+        });
+    </script>
+
+    <button onclick="fn1(this)">인라인</button>
+    <div id="btn4">고전</div>
+    <div id="btn5">표전</div>
+
+    <script>
+        function fn1(e) {
+            e.innerHTML = "클릭됨";
+        }
+
+        document.querySelector("#btn4").onclick = (e) => {
+            console.log(e); //고전
+        };
+        document.querySelector("#btn5").addEventListener ("click", (e) =>{
+            console.log(e); //표준
+        });
+
+    </script>
+    <h3>태그에 기본으로 달려있는 이벤트 막기</h3>
+
+    <hr>
+    <a href="http://www.naver.com" target="_blank">네이버 이동</a>   
+    <a href="http://www.naver.com" target="_blank" onclick="alert('123')">네이버 이동</a>   
+    <a href="http://www.naver.com" onclick="return false;">네이버 이동</a>   
+    <a href="http://www.naver.com" onclick="return returnFn()">네이버 이동</a>   
+
+    <script>
+        function returnFn(){
+            const num = 1;
+            if(num===1){
+                return false;
+            }
+        }
+    </script>
+
+    <hr>
+    <h3>유효성 검증</h3>
+    <form action="가입 url">
+        <fieldset>
+            <legend>회원가입</legend>
+
+            아이디: <input type="text" name="userId" id="userId"><br>
+            <label style="font-size:10px; color: #eee">
+                입력해주세요
+            </label>
+            <br><br>
+
+            <button type="submit" onclick="return validate()">가입하기</button>
+        </fieldset>
+      </form>
+      <script>
+        function validate(){
+            const userId = document.querySelector("#userId").value;
+
+            const regEcp =/^[A-Za-z0-9]{5,12}$/
+       
+            if(regExp.test(userId)){
+                return true;
+            }
+            return false;
+
+        }
+      </script>
+
+    </body>
+</html>
